@@ -1,0 +1,99 @@
+:root {
+  /* Color Palette in HSL for Tailwind compatibility */
+  --primary: 222 72% 40%;      /* #1E40AF Royal Blue */
+  --secondary: 215 20% 45%;    /* #64748B Slate Gray */
+  --accent: 160 76% 42%;       /* #10B981 Emerald Green */
+  --bg-light: 210 40% 98%;     /* #F8FAFC White Smoke */
+  --bg-dark: 222 64% 7%;       /* #0F172A Rich Charcoal */
+  --surface: 214 32% 90%;      /* #E2E8F0 Soft Light Gray */
+  --text-dark: 210 40% 96%;    /* #F1F5F9 Cool White */
+  --text-light: 222 47% 15%;   /* #1E293B Graphite */
+  --header-bg: 217 91% 60%;    /* #3B82F6 Header Background */
+}
+
+/* Glassmorphism */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+/* Transitions */
+.transition-all {
+  transition: all 0.3s ease-in-out;
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Custom Components */
+.hero-section {
+  background-color: var(--header-bg);
+  color: var(--text-dark);
+}
+
+.modal-overlay {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+  }
+}
+
+/* Light Mode Support */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+  }
+} 
