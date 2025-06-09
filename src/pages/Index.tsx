@@ -19,12 +19,11 @@ const carouselImages = [
 ];
 
 const homeLinks = [
-  { name: 'Colleges', icon: GraduationCap },
-  { name: 'Open Degree', icon: Bookmark },
-  { name: 'Workshop', icon: Globe },
-  { name: 'Internships', icon: Briefcase },
-  { name: 'Hackathon', icon: Cpu },
-  { name: 'Open Courses', icon: BookOpen },
+  { name: 'Colleges', icon: GraduationCap, desc: 'Explore top colleges and universities', color: 'bg-blue-500', btn: 'bg-blue-600 hover:bg-blue-700', iconColor: 'text-white' },
+  { name: 'Internships', icon: Briefcase, desc: 'Find valuable internship opportunities', color: 'bg-green-500', btn: 'bg-green-600 hover:bg-green-700', iconColor: 'text-white' },
+  { name: 'Workshop', icon: Globe, desc: 'Attend skill-building workshops', color: 'bg-purple-500', btn: 'bg-purple-600 hover:bg-purple-700', iconColor: 'text-white' },
+  { name: 'Hackathon', icon: Cpu, desc: 'Participate in coding competitions', color: 'bg-orange-500', btn: 'bg-orange-600 hover:bg-orange-700', iconColor: 'text-white' },
+  { name: 'Open Degree', icon: Bookmark, desc: 'Pursue flexible degree programs', color: 'bg-teal-500', btn: 'bg-teal-600 hover:bg-teal-700', iconColor: 'text-white' },
 ];
 
 const stats = [
@@ -77,23 +76,24 @@ function HomeOpportunitiesLinks() {
     'Open Courses': '/open-courses',
   };
   return (
-    <div className="flex flex-wrap justify-center gap-8 md:gap-12">
-      {homeLinks.map((link) => (
-        <Link
-          key={link.name}
-          to={linkRoutes[link.name]}
-          className="group flex flex-col items-center p-4 transition-all duration-300 rounded-xl hover:bg-[#f3f5f780] animate-fade-in"
-          style={{ animationDelay: `${homeLinks.indexOf(link) * 0.1}s` }}
-        >
-          <div className="flex items-center justify-center w-12 h-12 mb-2 rounded-full transition-transform duration-300 group-hover:scale-110" style={{ background: '#f3f5f7cc' }}>
-            {link.icon ? (
-              <link.icon size={24} className="text-[#007fff]" />
-            ) : null}
+    <div className="w-full flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-10 xl:gap-12">
+      {homeLinks.map((link, idx) => (
+        <div key={link.name} className="flex">
+          <div className="animate-fade-in" style={{ animationDelay: `${idx * 0.1}s` }}>
+            <div className="w-[210px] h-[310px] bg-white rounded-2xl shadow-md flex flex-col items-center p-6 transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg mx-auto" style={{ minWidth: 210, maxWidth: 210 }}>
+              <div className={`w-20 h-20 flex items-center justify-center rounded-full mb-4 ${link.color}`}>
+                {link.icon ? (
+                  <link.icon size={40} className={link.iconColor} />
+                ) : null}
+              </div>
+              <div className="flex-1 flex flex-col items-center justify-center text-center">
+                <h3 className="text-xl font-bold mb-2 text-gray-900">{link.name}</h3>
+                <p className="text-gray-600 text-base mb-6">{link.desc}</p>
+              </div>
+              <a href={linkRoutes[link.name]} className={`w-full mt-auto rounded-lg py-2 px-4 text-white font-semibold text-base text-center transition-colors duration-200 ${link.btn}`}>Explore Now</a>
+            </div>
           </div>
-          <span className="nav-link-text relative py-1 px-1 inline-block transition-colors duration-300">
-            {link.name}
-          </span>
-        </Link>
+        </div>
       ))}
     </div>
   );

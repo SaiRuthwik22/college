@@ -376,7 +376,7 @@ const Colleges = () => {
                   return (
                     <Card
                       key={college.id}
-                      className="transition-all border border-surface rounded-xl shadow-sm bg-white flex flex-col h-full"
+                      className="transition-all duration-300 border border-surface rounded-xl shadow-sm bg-white flex flex-col h-full hover:shadow-lg hover:-translate-y-1"
                     >
                       <CardHeader className="relative p-0">
                         <div className="aspect-video relative overflow-hidden rounded-t-xl">

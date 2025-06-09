@@ -19,7 +19,7 @@ const CollegeCard = ({ college }: { college: College }) => {
   };
   
   return (
-    <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer" onClick={handleCollegeClick}>
+    <Card className="overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer" onClick={handleCollegeClick}>
       <div className="h-44 overflow-hidden">
         <img 
           src={college.images[0]} 
