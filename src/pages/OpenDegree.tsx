@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { mockColleges, College } from '@/data/mockColleges';
 import NewHeader from '@/components/NewHeader';
+import Footer from '@/components/Footer';
 
 const CollegeCard = ({ college }: { college: College }) => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const CollegeCard = ({ college }: { college: College }) => {
   };
   
   return (
-    <Card className="overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer" onClick={handleCollegeClick}>
+    <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer" onClick={handleCollegeClick}>
       <div className="h-44 overflow-hidden">
         <img 
           src={college.images[0]} 
@@ -48,7 +49,7 @@ const CollegeCard = ({ college }: { college: College }) => {
         
         <div className="flex justify-between items-center">
           <span className="text-sm font-medium">{college.tuitionFee}</span>
-          <Button variant="outline" size="sm" className="text-primary border-primary hover:bg-primary hover:text-white transition-colors">
+          <Button variant="outline" size="sm" className="text-white bg-[#0D9488] border-[#0D9488] hover:bg-[#0f766e] hover:border-[#0f766e] transition-colors">
             Details <ArrowRight className="ml-1 h-3 w-3" />
           </Button>
         </div>
@@ -59,12 +60,12 @@ const CollegeCard = ({ college }: { college: College }) => {
 
 const OpenDegree = () => {
   return (
-    <div className="min-h-screen bg-background mt-32">
+    <div className="min-h-screen bg-background mt-16">
       <NewHeader />
       <div className="container mx-auto pt-4 pb-16 px-4">
-        <div className="text-center mb-12">
+        <div className=" mb-12">
           <h1 className="text-3xl md:text-4xl font-display font-bold mb-3">Open Degree Programs</h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl ">
             Explore top colleges offering flexible open degree programs designed to fit your schedule and career goals.
           </p>
         </div>
@@ -74,6 +75,7 @@ const OpenDegree = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

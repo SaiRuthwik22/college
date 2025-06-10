@@ -243,7 +243,7 @@ const Hackathon = () => {
                       <div className="mt-auto pt-4">
                         <Button 
                           variant="outline" 
-                          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+                          className="w-full bg-[#EA580C] hover:bg-[#c2410c] text-white border-none"
                           onClick={() => setSelectedHackathon(hackathon)}
                         >
                           Register
@@ -354,7 +354,7 @@ const Hackathon = () => {
                   </div>
 
                   <div className="pt-4">
-                    <Button type="submit" className="w-full md:w-auto">
+                    <Button type="submit" className="w-full md:w-auto bg-[#EA580C] hover:bg-[#c2410c] text-white">
                       Submit Registration
                     </Button>
                   </div>

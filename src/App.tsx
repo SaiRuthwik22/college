@@ -22,6 +22,7 @@ const Refer = lazy(() => import("./pages/Refer"));
 const International = lazy(() => import("./pages/International"));
 const OpenCourses = lazy(() => import("./pages/OpenCourses"));
 const Login = lazy(() => import("./pages/Login"));
+const InternshipDetails = lazy(() => import("./pages/InternshipDetails"));
 
 // Loading fallback component
 const LoadingFallback = () => (
@@ -69,6 +70,7 @@ const App = () => {
               <Route path="/colleges" element={<Colleges />} />
               <Route path="/college/:collegeCode" element={<CollegeDetails />} />
               <Route path="/internships" element={<Internships />} />
+              <Route path="/internship/:id" element={<InternshipDetails />} />
               <Route path="/workshops" element={<Workshops />} />
               <Route path="/hackathon" element={<Hackathon />} />
               

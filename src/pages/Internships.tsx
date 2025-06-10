@@ -16,6 +16,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import Footer from '@/components/Footer';
 import BackButton from '@/components/HomeButton';
 import { useNavigate } from 'react-router-dom';
+import InternshipDetails from './InternshipDetails';
 
 interface Banner {
   id: number;
@@ -387,11 +388,21 @@ const InternshipApplication = () => {
                 </CardContent>
                 <CardFooter>
                   <Button 
-                    className="w-full"
-                    onClick={() => handleOpenApplyDialog(internship)}
+                    className="w-full bg-[#16A34A] hover:bg-[#15803D] text-white font-semibold text-base transition-colors duration-200"
+                    onClick={() => navigate(`/internship/${internship.id}`, { state: {
+                      id: internship.id,
+                      title: internship.title,
+                      description: internship.description,
+                      locationType: internship.locationType,
+                      phone_number: internship.providerPhone,
+                      price: internship.stipend,
+                      timings: { startDate: internship.startDate, endDate: internship.endDate },
+                      count: internship.count ?? null,
+                      internship // fallback for full object
+                    } })}
                     disabled={new Date() > new Date(internship.applicationDeadline)}
                   >
-                    Apply Now
+                    View and Apply
                   </Button>
                 </CardFooter>
               </Card>

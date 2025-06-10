@@ -320,10 +320,10 @@ const Workshops = () => {
               </div>
             </CardContent>
             <CardFooter className="flex justify-between">
-              <Button variant="outline" onClick={resetFilters}>
+              <Button variant="outline" onClick={resetFilters} className="border-[#9333EA] text-[#9333EA] hover:bg-[#f3e8ff]">
                 Reset Filters
               </Button>
-              <Button onClick={handleFilter}>
+              <Button onClick={handleFilter} className="bg-[#9333EA] hover:bg-[#7e22ce] text-white">
                 Apply Filters
               </Button>
             </CardFooter>
@@ -338,7 +338,9 @@ const Workshops = () => {
         ) : error ? (
           <div className="text-center py-12">
             <p className="text-muted-foreground mb-4">{error}</p>
-            <Button onClick={() => window.location.reload()}>Retry</Button>
+            <Button onClick={() => window.location.reload()} className="bg-[#9333EA] hover:bg-[#7e22ce] text-white">
+              Retry
+            </Button>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -376,7 +378,7 @@ const Workshops = () => {
                 </CardContent>
                 <CardFooter>
                   <Button 
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors" 
+                    className="w-full bg-[#9333EA] hover:bg-[#7e22ce] text-white transition-colors" 
                     onClick={() => handleRegister(workshop)}
                     disabled={new Date() > new Date(workshop.startDate)}
                   >
@@ -391,7 +393,9 @@ const Workshops = () => {
         {filteredWorkshops.length === 0 && !loading && !error && (
           <div className="text-center py-12">
             <p className="text-muted-foreground mb-4">No workshops found with the current filters.</p>
-            <Button onClick={resetFilters}>Clear Filters</Button>
+            <Button onClick={resetFilters} className="bg-[#9333EA] hover:bg-[#7e22ce] text-white">
+              Clear Filters
+            </Button>
           </div>
         )}
       </main>
