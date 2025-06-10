@@ -144,7 +144,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen w-full flex flex-col bg-background">
+    <div className="min-h-screen w-full flex flex-col home-page">
       <NewHeader />
       
       {/* Hero Section */}
@@ -165,8 +165,32 @@ const Index = () => {
           <HomeOpportunitiesLinks />
         </div>
       </section>
+            {/* Get Started Section */}
+            <section 
+        ref={getStartedSectionRef}
+        className="w-full py-12 md:py-16 px-4 sm:px-8 md:px-20 lg:px-20 opacity-0 transition-opacity duration-700"
+      >
+        <div className="w-full">
+          <div className="rounded-2xl bg-gradient-to-r from-[#2563eb] to-[#9333ea] p-6 md:p-12 w-full flex flex-col items-center text-center">
+            <h2 className="text-3xl font-bold mb-6 text-white">Get Started Today</h2>
+            <p className="text-lg mb-8 text-white">
+              Begin your educational journey with EduPortal. Explore colleges, apply for programs, 
+              and take the first step towards your future.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-white text-blue-700 font-semibold hover:bg-blue-50 transition-colors"
+                onClick={() => window.location.href = '/colleges'}
+              >
+                Explore Colleges
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* About Eduportal Section */}
-      <section className="py-12 md:py-20 bg-muted/30">
+      <section className="py-4 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">About Eduportal</h2>
           
@@ -174,19 +198,20 @@ const Index = () => {
             {aboutSubsections.map((subsection, index) => (
               <div 
                 key={index} 
-                className={`flex flex-col items-center gap-10 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                className={`flex flex-col items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} md:gap-0`}
               >
                 {/* Text Content */}
-                <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+                <div className="w-full md:w-[48%] flex flex-col items-center md:items-start text-center md:text-left">
                   <h3 className="text-2xl font-semibold mb-4">{subsection.title}</h3>
                   <p className="text-lg text-secondary leading-relaxed">{subsection.text}</p>
                 </div>
                 {/* Image */}
-                <div className="w-full md:w-1/2 flex justify-center">
+                <div className={`w-full md:w-[48%] flex justify-center ${index % 2 === 0 ? 'md:ml-[4%]' : 'md:mr-[4%]'}`}> 
                   <img 
                     src={subsection.imageUrl} 
                     alt={subsection.title} 
-                    className="rounded-xl shadow-lg w-full max-w-sm object-cover"
+                    className="rounded-xl shadow-lg w-full object-cover" 
+                    style={{ maxHeight: '260px' }}
                   />
                 </div>
               </div>
@@ -198,36 +223,7 @@ const Index = () => {
       {/* Educational Opportunities Section */}
 
 
-      {/* Get Started Section */}
-      <section 
-        ref={getStartedSectionRef}
-        className="container mx-auto py-12 md:py-16 px-4 opacity-0 transition-opacity duration-700"
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6 text-primary">Get Started Today</h2>
-          <p className="text-lg text-text-light mb-8">
-            Begin your educational journey with EduPortal. Explore colleges, apply for programs, 
-            and take the first step towards your future.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-white"
-              onClick={() => window.location.href = '/colleges'}
-            >
-              Explore Colleges
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary/10"
-              onClick={() => window.location.href = '/contact-us'}
-            >
-              Contact Us
-            </Button>
-          </div>
-        </div>
-      </section>
+
       
       {/* Info Cards Section */}
       <section 

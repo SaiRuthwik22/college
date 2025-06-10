@@ -111,35 +111,16 @@
     scroll-behavior: smooth;
   }
 }
+.home-page{
+  background-image : linear-gradient(to bottom,#eff6ff , #fff)
+}
 
 @layer components {
   /* Custom link underline animation */
-  .nav-link {
-    @apply relative py-1 px-1 inline-block transition-colors duration-300;
-  }
-  
-  .nav-link::after {
-    content: '';
-    @apply absolute left-0 bottom-0 w-0 h-[2px] bg-primary transition-all duration-300 ease-out;
-  }
-  
-  .nav-link:hover::after {
-    @apply w-full;
-  }
+ 
 
-  /* New nav-link-text for better hover transition */
-  .nav-link-text {
-    @apply relative py-1 px-1 inline-block transition-colors duration-300;
-  }
-  
-  .nav-link-text::after {
-    content: '';
-    @apply absolute left-0 bottom-0 w-0 h-[2px] bg-primary transition-all duration-300 ease-out;
-  }
-  
-  .group:hover .nav-link-text::after {
-    @apply w-full;
-  }
+
+
 
   /* Search bar styles */
   .search-input {
@@ -250,6 +231,19 @@
   
   .img-lazy-load.loaded {
     @apply opacity-100 blur-none;
+  }
+
+  /* Navigation Links with Hover Color Transition */
+  .nav-link {
+    font-weight: 600;
+    color: var(--text-light);
+    transition: color 0.5s cubic-bezier(0.4,0,0.2,1);
+    text-decoration: none !important;
+  }
+  
+  .nav-link:hover, .nav-link:focus {
+    color: #2563eb;
+    text-decoration: none !important;
   }
 }
 
